@@ -1,0 +1,11 @@
+/*
+ * CSS file 
+ */
+ .pswd-Ok 
+ {
+	border: 7px solid green;
+}
+.pswd-Ko
+{
+	border: 7px solid red;
+}

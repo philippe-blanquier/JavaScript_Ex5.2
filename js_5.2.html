@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<title>Exercice 5.2</title>
+		<meta charset="UTF-8">
+      <link rel="stylesheet" type="text/css" href="js_5.2.css" media="screen">
+	</head>
+	<body>
+		<form method="get" name="data_input">
+			<fieldset>
+				<legend><strong>Vérification du Mot de Passe</strong></legend>
+            <p>
+               <label for="password1"></label>
+               <input class="input" type="password" name="password1" id="password1" placeholder="Mot de passe 1" required />
+            </p>
+            <p>
+               <label for="password2"></label>
+               <input class="input" type="password" name="password2" id="password2" placeholder="Mot de passe 2" required />
+            </p>
+			</fieldset>
+         <input type="submit" onclick="checkPassword('password1','password2')" value="Test">
+      </form>
+      <script>
+         function checkPassword(pswd1Name, pswd2Name) 
+         {
+            console.log("checkPassword");
+            // Check input parameter names
+            let pwd1Id = document.getElementById(pswd1Name);
+            if (pwd1Id == null)
+            {
+               alert(`${pswd1Name} not found`);
+               return false;
+            }
+            let pwd2Id = document.getElementById(pswd2Name);
+            if (pwd2Id == null)
+            {
+               alert(`${pswd2Name} not found`);
+               return false;
+            }
+            // Check input parameter values
+            let selectedClass;
+            if (pwd1Id.value == pwd2Id.value)
+            {
+               selectedClass="pswd-Ok";
+            }
+            else
+            {
+               selectedClass="pswd-Ko";
+            }
+            // Set the result
+            pwd1Id.setAttribute('class', `${selectedClass}`);
+            pwd2Id.setAttribute('class', `${selectedClass}`);
+         }
+      </script>
+   </body>
